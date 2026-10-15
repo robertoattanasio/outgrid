@@ -24,6 +24,9 @@
   "files": [
     "src"
   ],
+  "workspaces": [
+    "."
+  ],
   "sideEffects": [
     "**/*.css"
   ],
