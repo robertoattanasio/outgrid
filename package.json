@@ -1,6 +1,6 @@
 {
   "name": "outgrid",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A CSS layout grid with full-bleed breakouts and a global setup through custom properties. Plain CSS, with an optional Tailwind CSS v4 entry.",
   "keywords": [
     "css",
@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "author": "Roberto Attanasio",
-  "homepage": "https://dev.robertoattanasio.com/outgrid",
+  "homepage": "https://outgrid.robertoattanasio.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robertoattanasio/outgrid.git"

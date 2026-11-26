@@ -25,7 +25,7 @@ docs/
 - Every selector is wrapped in `:where()`: specificity 0.
 - Custom properties are prefixed `--og-`, classes `og-`.
 - Everything is set through custom properties: no hard-coded size in a class.
-- `og-grid` recomputes `--og-bleed` on itself, so overrides set on the grid apply.
+- `og-grid` recomputes `--og-frame-gap` on itself, so overrides set on the grid apply.
 - Inline properties are logical: `margin-inline`, `padding-inline-start`.
 - No build, no JavaScript. Tailwind CSS is an optional peer dependency.
 - No comments in the code unless asked.

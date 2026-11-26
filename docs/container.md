@@ -13,8 +13,8 @@ The width of `og-grid` without the grid: centered, capped at `--og-max-width`, p
 
 ## Behavior
 
-- Its content lines up with the content of any `og-grid`.
-- It doesn't compute `--og-bleed` on itself: breakouts inside it read the value from `:root`.
+- Its content lines up with the frame of any `og-grid`.
+- It doesn't compute `--og-frame-gap` on itself: breakouts inside it read the value from `:root`.
 - Styles sit under `:where()`: specificity 0.
 
 ## Example

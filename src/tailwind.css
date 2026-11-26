@@ -5,13 +5,13 @@
     --og-padding: 1rem;
     --og-gutter-x: clamp(0.5rem, 2.2vw, 2rem);
     --og-gutter-y: clamp(0.5rem, 2.2vw, 2rem);
-    --og-bleed: max(var(--og-padding), calc((100vw - var(--og-max-width)) / 2));
+    --og-frame-gap: max(var(--og-padding), calc((100vw - var(--og-max-width)) / 2));
   }
 }
 
 @utility og-grid {
   :where(&) {
-    --og-bleed: max(var(--og-padding), calc((100vw - var(--og-max-width)) / 2));
+    --og-frame-gap: max(var(--og-padding), calc((100vw - var(--og-max-width)) / 2));
 
     width: 100%;
     max-width: calc(var(--og-max-width) + var(--og-padding) * 2);
@@ -21,12 +21,22 @@
     display: grid;
     column-gap: var(--og-gutter-x);
     row-gap: var(--og-gutter-y);
-    grid-template-columns: [content-start] repeat(var(--og-columns), [col-start] minmax(0, 1fr) [col-end]) [content-end];
+    grid-template-columns: [frame-start] repeat(var(--og-columns), [col-start] minmax(0, 1fr) [col-end]) [frame-end];
   }
 
   :where(&) > * {
-    grid-column-start: content-start;
-    grid-column-end: content-end;
+    grid-column-start: frame-start;
+    grid-column-end: frame-end;
+  }
+}
+
+@utility og-subgrid {
+  :where(&) {
+    grid-column-start: frame-start;
+    grid-column-end: frame-end;
+    display: grid;
+    row-gap: var(--og-gutter-y);
+    grid-template-columns: subgrid;
   }
 }
 
@@ -39,50 +49,50 @@
   }
 }
 
-@utility og-full {
+@utility og-view {
   :where(&) {
-    grid-column-start: content-start;
-    grid-column-end: content-end;
-    margin-inline: calc(var(--og-bleed) * -1);
+    grid-column-start: frame-start;
+    grid-column-end: frame-end;
+    margin-inline: calc(var(--og-frame-gap) * -1);
   }
 }
 
-@utility og-content {
+@utility og-frame {
   :where(&) {
-    grid-column-start: content-start;
-    grid-column-end: content-end;
+    grid-column-start: frame-start;
+    grid-column-end: frame-end;
     margin-inline: 0;
   }
 }
 
-@utility og-start-full {
+@utility og-view-start {
   :where(&) {
-    grid-column-start: content-start;
-    margin-inline-start: calc(var(--og-bleed) * -1);
+    grid-column-start: frame-start;
+    margin-inline-start: calc(var(--og-frame-gap) * -1);
   }
 }
 
-@utility og-end-full {
+@utility og-view-end {
   :where(&) {
-    grid-column-end: content-end;
-    margin-inline-end: calc(var(--og-bleed) * -1);
+    grid-column-end: frame-end;
+    margin-inline-end: calc(var(--og-frame-gap) * -1);
   }
 }
 
-@utility og-pl-bleed {
+@utility og-pad-frame-start {
   :where(&) {
-    padding-inline-start: var(--og-bleed);
+    padding-inline-start: var(--og-frame-gap);
   }
 }
 
-@utility og-pr-bleed {
+@utility og-pad-frame-end {
   :where(&) {
-    padding-inline-end: var(--og-bleed);
+    padding-inline-end: var(--og-frame-gap);
   }
 }
 
-@utility og-px-bleed {
+@utility og-pad-frame {
   :where(&) {
-    padding-inline: var(--og-bleed);
+    padding-inline: var(--og-frame-gap);
   }
 }

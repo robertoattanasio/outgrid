@@ -1,6 +1,6 @@
 # og-grid
 
-The layout grid: centered, capped at `--og-max-width`, padded by `--og-padding`, with `--og-columns` columns.
+The layout grid: its columns fill the frame, centered, capped at `--og-max-width`, padded by `--og-padding`, `--og-columns` of them.
 
 ## Styles
 
@@ -18,27 +18,27 @@ The layout grid: centered, capped at `--og-max-width`, padded by `--og-padding`,
 ## Lines
 
 ```
-[content-start] [col-start] 1fr [col-end] [col-start] 1fr [col-end] … [content-end]
+[frame-start] [col-start] 1fr [col-end] [col-start] 1fr [col-end] … [frame-end]
 ```
 
 | Line            |                                 |
 | --------------- | ------------------------------- |
-| `content-start` | the left edge of the content    |
-| `content-end`   | the right edge of the content   |
+| `frame-start`   | the start edge of the frame     |
+| `frame-end`     | the end edge of the frame       |
 | `col-start <n>` | the start of column `n`, from 1 |
 | `col-end <n>`   | the end of column `n`, from 1   |
 
 ## Behavior
 
-- Every direct child spans the whole content, from `content-start` to `content-end`, unless it sets its own `grid-column`.
+- Every direct child spans the whole frame, from `frame-start` to `frame-end`, unless it sets its own `grid-column`.
 - Styles sit under `:where()`: specificity 0, any class of the project overrides them.
 
 ## Example
 
 ```html
 <section class="og-grid">
-  <h2>Spans the content</h2>
+  <h2>Spans the frame</h2>
   <p style="grid-column: col-start 1 / col-end 6">Columns 1 to 6</p>
-  <aside style="grid-column: col-start 8 / content-end">Column 8 to the end</aside>
+  <aside style="grid-column: col-start 8 / frame-end">Column 8 to the end</aside>
 </section>
 ```

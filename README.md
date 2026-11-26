@@ -4,7 +4,7 @@ Outgrid is a CSS layout grid for pages that need both a readable content width a
 
 Package: [npmjs.com/package/outgrid](https://www.npmjs.com/package/outgrid)
 
-Documentation: [dev.robertoattanasio.com/outgrid](https://dev.robertoattanasio.com/outgrid)
+Documentation: [outgrid.robertoattanasio.com](https://outgrid.robertoattanasio.com)
 
 ## Installation
 
@@ -29,13 +29,14 @@ For Tailwind CSS v4, import Outgrid after Tailwind:
 
 ## API
 
-Outgrid provides the grid and container, plus utilities for full-width breakouts and padding that follows the grid. You can find the details for each part here:
+Two words name the two widths Outgrid works with. The **frame** is the readable width of the content: centred, capped at `--og-max-width`, kept off the edges by `--og-padding`. The **view** is the full width of the screen. Outgrid provides the grid and the container, which hold the frame, classes that take an element out to the view, and padding that brings its content back to the frame. You can find the details for each part here:
 
 - [Custom properties](./docs/custom-properties.md)
 - [og-grid](./docs/grid.md)
+- [og-subgrid](./docs/subgrid.md)
 - [og-container](./docs/container.md)
-- [Breakouts](./docs/breakouts.md): `og-full`, `og-content`, `og-start-full`, `og-end-full`
-- [Bleed padding](./docs/bleed-padding.md): `og-pl-bleed`, `og-pr-bleed`, `og-px-bleed`
+- [Breakouts](./docs/breakouts.md): `og-view`, `og-view-start`, `og-view-end`, `og-frame`
+- [Frame padding](./docs/frame-padding.md): `og-pad-frame`, `og-pad-frame-start`, `og-pad-frame-end`
 - [Tailwind CSS entry](./docs/tailwind.md)
 
 ## Scripts
